@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>KYŌKEN — APPLICATIONS COMMAND</title>
+<link rel="stylesheet" href="command.css">
+<style>
+.app-shell{width:min(1200px,92%);margin:0 auto;padding:55px 0 100px}.back{display:inline-block;margin-bottom:28px;color:#aaa;font-size:10px;letter-spacing:2px}.back:hover{color:#fff}.toolbar{display:flex;gap:10px;align-items:center;margin:25px 0 10px}.search-input{flex:1;min-width:220px;background:#0d0d0d;color:#eee;border:1px solid rgba(255,255,255,.1);padding:12px 14px;font:12px Arial,sans-serif;outline:none}.search-input:focus{border-color:#9d1111}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0}.filter-btn,.action-btn{font:inherit;color:#ddd;background:#0d0d0d;border:1px solid rgba(255,255,255,.1);padding:11px 15px;font-size:10px;letter-spacing:2px;cursor:pointer}.filter-btn.active,.filter-btn:hover{border-color:#9d1111;background:rgba(157,17,17,.12)}.app-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:18px}.app-list,.app-detail{background:#0b0b0b;border:1px solid rgba(255,255,255,.08)}.app-list{max-height:680px;overflow:auto}.app-row{padding:18px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer}.app-row:hover,.app-row.active{background:#121212;border-left:3px solid #9d1111;padding-left:15px}.row-top{display:flex;justify-content:space-between;gap:12px}.app-id,.app-status{font-size:9px;letter-spacing:2px;color:#888}.app-status.pending{color:#e4c24d}.app-status.accepted{color:#62d47b}.app-status.rejected{color:#e65c5c}.app-status.tryout{color:#72a9ff}.app-name{font-size:15px;letter-spacing:1px;margin:10px 0 5px}.app-meta{font-family:Arial,sans-serif;color:#777;font-size:11px}.detail-inner{padding:26px}.detail-title{font-size:24px;letter-spacing:2px}.detail-sub{font-family:Arial,sans-serif;color:#777;font-size:12px;margin-top:7px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:25px 0}.field{padding:14px;background:#101010;border:1px solid rgba(255,255,255,.06)}.field span{display:block;color:#777;font-size:8px;letter-spacing:2px;margin-bottom:7px}.field strong{font-family:Arial,sans-serif;font-size:12px;color:#ddd;line-height:1.5;word-break:break-word}.field.full{grid-column:1/-1}.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.action-btn.accept{border-color:rgba(98,212,123,.45)}.action-btn.reject{border-color:rgba(230,92,92,.45)}.action-btn:disabled{opacity:.4;cursor:not-allowed}.empty{padding:35px;text-align:center;color:#666;font-family:Arial,sans-serif;font-size:12px}.notice{margin:18px 0;padding:13px 16px;border:1px solid rgba(157,17,17,.35);background:rgba(157,17,17,.08);font-size:10px;letter-spacing:1px}.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;place-items:center;z-index:50}.modal-backdrop.active{display:grid}.confirm{width:min(440px,90%);background:#0e0e0e;border:1px solid rgba(157,17,17,.45);padding:28px}.confirm h3{letter-spacing:2px}.confirm p{font-family:Arial,sans-serif;color:#aaa;font-size:13px;line-height:1.6;margin:14px 0 22px}.confirm-actions{display:flex;gap:10px;justify-content:flex-end}.account-record{margin-top:18px;padding:16px;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)}.account-record h4{font-size:10px;letter-spacing:2px;margin:0 0 10px}.history-row{padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font:11px Arial,sans-serif;color:#aaa}.small{font-family:Arial,sans-serif;color:#777;font-size:11px;line-height:1.6;margin-top:18px}
+
+.status-timeline{margin-top:24px;padding:18px;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)}
+.timeline-title{font-size:10px;letter-spacing:2px;margin:0 0 16px}
+.timeline{position:relative;padding-left:22px}
+.timeline:before{content:"";position:absolute;left:6px;top:7px;bottom:7px;width:1px;background:rgba(255,255,255,.12)}
+.timeline-step{position:relative;padding:0 0 17px 10px}.timeline-step:last-child{padding-bottom:0}
+.timeline-dot{position:absolute;left:-19px;top:3px;width:9px;height:9px;border-radius:50%;background:#555;border:2px solid #0d0d0d;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.timeline-step.done .timeline-dot{background:#9d1111;box-shadow:0 0 0 1px rgba(157,17,17,.45),0 0 12px rgba(157,17,17,.25)}
+.timeline-step.current .timeline-dot{background:#e4c24d;box-shadow:0 0 0 1px rgba(228,194,77,.45),0 0 12px rgba(228,194,77,.2)}
+.timeline-label{font-size:10px;letter-spacing:1.5px;color:#ddd}.timeline-meta{font:11px Arial,sans-serif;color:#777;margin-top:4px;line-height:1.5}
+
+@media(max-width:850px){.app-layout{grid-template-columns:1fr}.app-list{max-height:400px}.detail-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+<link rel="stylesheet" href="management-drawer.css">
+</head>
+<body>
+<nav class="navbar management-main-navbar" aria-label="Primary navigation">
+  <a href="index.html" class="nav-logo" aria-label="Kyōken Home"><span class="nav-logo-title">KYŌKEN</span></a>
+  <div class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#ranks">RANKS</a>
+    <a href="application.html">APPLY</a>
+  </div>
+</nav>
+<div class="management-account-bar"><div id="operator" class="operator">VERIFYING ACCESS...</div><a href="/auth/logout" class="logout">LOG OUT</a></div>
+
+
+<main class="app-shell">
+<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><a href="command.html" class="back">← RETURN TO COMMAND</a></div>
+<section class="hero-block">
+<div><p class="eyebrow">APPLICATION CONTROL</p><h1>APPLICATIONS</h1><p class="muted">Review Kyōken clan applications and process pending applicants from one secure control panel.</p></div>
+<div class="live-badge" id="systemStatus">● CONNECTING</div>
+</section>
+<div id="notice" class="notice" hidden></div>
+<section class="stats-grid" style="margin:30px 0 30px">
+<article class="stat-card"><span>TOTAL</span><strong id="statTotal">—</strong><small>All applications</small></article>
+<article class="stat-card"><span>PENDING</span><strong id="statPending">—</strong><small>Awaiting review</small></article>
+<article class="stat-card"><span>TRY OUT</span><strong id="statTryout">—</strong><small>Joined and awaiting try out</small></article>
+<article class="stat-card"><span>ACCEPTED</span><strong id="statAccepted">—</strong><small>Approved applications</small></article>
+</section>
+<div class="toolbar"><input id="applicationSearch" class="search-input" type="search" placeholder="Search IGN, Discord, or Application #" autocomplete="off"><button class="action-btn" id="refreshApplications">↻ REFRESH</button></div>
+<div class="filters" id="filters">
+<button class="filter-btn active" data-status="ALL">ALL</button><button class="filter-btn" data-status="PENDING">PENDING</button><button class="filter-btn" data-status="TRYOUT">TRY OUT</button><button class="filter-btn" data-status="ACCEPTED">ACCEPTED</button><button class="filter-btn" data-status="REJECTED">REJECTED</button><button class="filter-btn" data-status="TRYOUT_FAILED">TRY OUT FAILED</button>
+</div>
+<section class="app-layout">
+<div class="app-list" id="applicationList"><div class="empty">LOADING APPLICATIONS...</div></div>
+<div class="app-detail" id="applicationDetail"><div class="empty">SELECT AN APPLICATION TO VIEW ITS DETAILS.</div></div>
+</section>
+</main>
+<div class="modal-backdrop" id="confirmModal" aria-hidden="true"><div class="confirm"><h3 id="confirmTitle">CONFIRM ACTION</h3><p id="confirmText"></p><div class="confirm-actions"><button class="action-btn" id="cancelAction">CANCEL</button><button class="action-btn" id="confirmAction">CONFIRM</button></div></div></div>
+<script src="applications-command.js"></script>
+
+<!-- KYŌKEN SHARED MANAGEMENT DRAWER -->
+<button id="managementTab" class="management-slide-tab" type="button" aria-controls="managementDrawer" aria-expanded="false" hidden>
+<span>M</span><span>A</span><span>N</span><span>A</span><span>G</span><span>E</span><span>M</span><span>E</span><span>N</span><span>T</span>
+</button>
+<aside id="managementDrawer" class="management-drawer" aria-hidden="true">
+  <div class="management-drawer-header"><div><span class="management-eyebrow">KYŌKEN COMMAND</span><h2>MANAGEMENT</h2><p id="managementWelcome">Staff control center</p></div><button id="managementDrawerClose" class="management-drawer-close" type="button" aria-label="Close management">×</button></div>
+  <div class="management-menu">
+    <div class="management-group"><span class="management-group-title">APPLICATIONS</span><a href="applications.html" class="management-menu-item management-scroll-link"><span class="management-icon">01</span><span><strong>APPLICATION MANAGEMENT</strong><small>Review and manage clan applications</small></span></a></div>
+    <div class="management-group"><span class="management-group-title">ANNOUNCEMENTS</span><a href="announcements.html" class="management-menu-item management-scroll-link"><span class="management-icon">02</span><span><strong>ANNOUNCEMENT MANAGEMENT</strong><small>Create and manage clan announcements</small></span></a></div>
+    <div class="management-group"><span class="management-group-title">SYSTEM</span><a href="command.html" class="management-menu-item management-scroll-link"><span class="management-icon">04</span><span><strong>COMMAND DASHBOARD</strong><small>View clan statistics and system status</small></span></a><a href="activity-log.html" class="management-menu-item management-scroll-link"><span class="management-icon">06</span><span><strong>ACTIVITY LOG</strong><small>Review important management actions</small></span></a></div>
+  </div>
+</aside>
+<div id="managementBackdrop" class="management-drawer-backdrop" aria-hidden="true"></div>
+<script src="management-drawer.js"></script>
+</body>
+</html>

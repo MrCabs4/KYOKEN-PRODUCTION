@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Kyōken Clan — My Officer Profile">
+
+    <meta
+        name="theme-color"
+        content="#050505">
+
+    <title>KYŌKEN — MY PROFILE</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body class="profile-page">
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="nav-logo"
+            aria-label="Kyōken Home">
+
+            <span class="nav-logo-title">KYŌKEN</span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="index.html#about">
+                ABOUT
+            </a>
+
+            <a href="index.html#ranks">
+                RANKS
+            </a>
+
+            <a
+                href="profile.html"
+                class="active">
+
+                PROFILE
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         PROFILE PAGE
+    ========================== -->
+
+    <main class="profile-wrapper">
+
+        <section
+            class="profile-container reveal"
+            id="profileContainer">
+
+
+            <!-- =========================
+                 HEADER
+            ========================== -->
+
+            <div class="profile-header">
+
+                <div class="profile-symbol">
+                    狂犬
+                </div>
+
+                <span>
+                    KYŌKEN CLAN
+                </span>
+
+                <h1>
+                    MY PROFILE
+                </h1>
+
+                <div class="section-line"></div>
+
+                <p>
+                    Edit your Kyōken officer profile. Access is restricted to Headquarters and Division Captains.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 ACCESS STATUS
+            ========================== -->
+
+            <div
+                class="profile-status"
+                id="profileStatus">
+
+                <span>
+                    CHECKING DISCORD ROLE...
+                </span>
+
+            </div>
+
+
+            <!-- =========================
+                 PROFILE CONTENT
+            ========================== -->
+
+            <div
+                class="profile-content"
+                id="profileContent">
+
+
+                <!-- =========================
+                     PROFILE PICTURE
+                ========================== -->
+
+                <div class="profile-picture-section">
+
+                    <div
+                        class="profile-picture"
+                        id="profilePicture">
+
+                        <span
+                            id="profilePicturePlaceholder">
+
+                            狂犬
+
+                        </span>
+
+                        <img
+                            id="profileImage"
+                            src=""
+                            alt="Kyōken Profile Picture">
+
+                    </div>
+
+
+                    <label
+                        for="profileImageInput"
+                        class="profile-upload-button">
+
+                        CHANGE PROFILE PICTURE
+
+                    </label>
+
+
+                    <input
+                        id="profileImageInput"
+                        type="file"
+                        accept="image/png,image/jpeg,image/webp"
+                        hidden>
+
+
+                    <p class="profile-upload-note">
+
+                        JPG, PNG, or WEBP — maximum 5 MB.
+
+                    </p>
+
+                </div>
+
+
+                <!-- =========================
+                     PROFILE FORM
+                ========================== -->
+
+                <form
+                    id="profileForm">
+
+
+                    <!-- =========================
+                         DISPLAY NAME
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label for="displayName">
+
+                            ◆ DISPLAY NAME
+
+                        </label>
+
+
+                        <input
+                            id="displayName"
+                            name="displayName"
+                            type="text"
+                            maxlength="50"
+                            placeholder="Enter your display name"
+                            autocomplete="off"
+                            required>
+
+                    </div>
+
+
+                    <!-- =========================
+                         DISCORD ACCOUNT
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label for="discordUsername">
+
+                            ◆ DISCORD ACCOUNT
+
+                        </label>
+
+
+                        <input
+                            id="discordUsername"
+                            type="text"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- =========================
+                         KYŌKEN POSITION
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label for="positionName">
+
+                            ◆ KYŌKEN POSITION
+
+                        </label>
+
+
+                        <input
+                            id="positionName"
+                            type="text"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- =========================
+                         MAIN FIGHTING STYLE
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label>
+                            ◆ MAIN FIGHTING STYLE
+                        </label>
+
+
+                        <div
+                            class="custom-select"
+                            id="mainFightingStyleSelect"
+                            data-name="mainFightingStyle">
+
+
+                            <input
+                                type="hidden"
+                                id="mainFightingStyle"
+                                name="mainFightingStyle"
+                                value="">
+
+
+                            <div
+                                class="select-trigger"
+                                tabindex="0"
+                                role="button"
+                                aria-haspopup="listbox"
+                                aria-expanded="false">
+
+                                <span
+                                    class="selected-text">
+
+                                    Choose your main fighting style
+
+                                </span>
+
+
+                                <span class="select-arrow">
+                                    ◆
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="select-options"
+                                role="listbox">
+
+
+                                <!-- BASIC -->
+
+                                <div class="style-category">
+
+                                    ◆ BASIC ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Basic"
+                                    role="option">
+
+                                    <span>
+                                        Basic
+                                    </span>
+
+                                    <small>
+                                        BASIC
+                                    </small>
+
+                                </div>
+
+
+                                <!-- UNCOMMON -->
+
+                                <div class="style-category uncommon">
+
+                                    ◆ UNCOMMON ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Slugger"
+                                    role="option">
+
+                                    <span>
+                                        Slugger
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Muay Thai"
+                                    role="option">
+
+                                    <span>
+                                        Muay Thai
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Karate"
+                                    role="option">
+
+                                    <span>
+                                        Karate
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kickboxing"
+                                    role="option">
+
+                                    <span>
+                                        Kickboxing
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <!-- EPIC -->
+
+                                <div class="style-category epic">
+
+                                    ◆ EPIC ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Boxing"
+                                    role="option">
+
+                                    <span>
+                                        Boxing
+                                    </span>
+
+                                    <small>
+                                        EPIC
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Striker"
+                                    role="option">
+
+                                    <span>
+                                        Striker
+                                    </span>
+
+                                    <small>
+                                        EPIC
+                                    </small>
+
+                                </div>
+
+
+                                <!-- LEGENDARY -->
+
+                                <div class="style-category legendary">
+
+                                    ◆ LEGENDARY ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Capoeira"
+                                    role="option">
+
+                                    <span>
+                                        Capoeira
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Wrestling"
+                                    role="option">
+
+                                    <span>
+                                        Wrestling
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kure"
+                                    role="option">
+
+                                    <span>
+                                        Kure
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Hakari"
+                                    role="option">
+
+                                    <span>
+                                        Hakari
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kyoushin Karate"
+                                    role="option">
+
+                                    <span>
+                                        Kyoushin Karate
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <!-- MYSTERY -->
+
+                                <div class="style-category mystery">
+
+                                    ◆ ??? ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="Ali"
+                                    role="option">
+
+                                    <span>
+                                        Ali
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="WingChun"
+                                    role="option">
+
+                                    <span>
+                                        WingChun
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="CQC"
+                                    role="option">
+
+                                    <span>
+                                        CQC
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         SECONDARY FIGHTING STYLE
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label>
+                            ◆ SECONDARY FIGHTING STYLE
+                        </label>
+
+
+                        <div
+                            class="custom-select"
+                            id="secondaryFightingStyleSelect"
+                            data-name="secondaryFightingStyle">
+
+
+                            <input
+                                type="hidden"
+                                id="secondaryFightingStyle"
+                                name="secondaryFightingStyle"
+                                value="">
+
+
+                            <div
+                                class="select-trigger"
+                                tabindex="0"
+                                role="button"
+                                aria-haspopup="listbox"
+                                aria-expanded="false">
+
+                                <span
+                                    class="selected-text">
+
+                                    None
+
+                                </span>
+
+
+                                <span class="select-arrow">
+                                    ◆
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="select-options"
+                                role="listbox">
+
+
+                                <!-- BASIC -->
+
+                                <div class="style-category">
+
+                                    ◆ BASIC ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Basic"
+                                    role="option">
+
+                                    <span>
+                                        Basic
+                                    </span>
+
+                                    <small>
+                                        BASIC
+                                    </small>
+
+                                </div>
+
+
+                                <!-- UNCOMMON -->
+
+                                <div class="style-category uncommon">
+
+                                    ◆ UNCOMMON ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Slugger"
+                                    role="option">
+
+                                    <span>
+                                        Slugger
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Muay Thai"
+                                    role="option">
+
+                                    <span>
+                                        Muay Thai
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Karate"
+                                    role="option">
+
+                                    <span>
+                                        Karate
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kickboxing"
+                                    role="option">
+
+                                    <span>
+                                        Kickboxing
+                                    </span>
+
+                                    <small>
+                                        UNCOMMON
+                                    </small>
+
+                                </div>
+
+
+                                <!-- EPIC -->
+
+                                <div class="style-category epic">
+
+                                    ◆ EPIC ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Boxing"
+                                    role="option">
+
+                                    <span>
+                                        Boxing
+                                    </span>
+
+                                    <small>
+                                        EPIC
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Striker"
+                                    role="option">
+
+                                    <span>
+                                        Striker
+                                    </span>
+
+                                    <small>
+                                        EPIC
+                                    </small>
+
+                                </div>
+
+
+                                <!-- LEGENDARY -->
+
+                                <div class="style-category legendary">
+
+                                    ◆ LEGENDARY ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Capoeira"
+                                    role="option">
+
+                                    <span>
+                                        Capoeira
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Wrestling"
+                                    role="option">
+
+                                    <span>
+                                        Wrestling
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kure"
+                                    role="option">
+
+                                    <span>
+                                        Kure
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Hakari"
+                                    role="option">
+
+                                    <span>
+                                        Hakari
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option"
+                                    data-value="Kyoushin Karate"
+                                    role="option">
+
+                                    <span>
+                                        Kyoushin Karate
+                                    </span>
+
+                                    <small>
+                                        LEGENDARY
+                                    </small>
+
+                                </div>
+
+
+                                <!-- MYSTERY -->
+
+                                <div class="style-category mystery">
+
+                                    ◆ ??? ◆
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="Ali"
+                                    role="option">
+
+                                    <span>
+                                        Ali
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="WingChun"
+                                    role="option">
+
+                                    <span>
+                                        WingChun
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+
+                                <div
+                                    class="select-option mystery-option"
+                                    data-value="CQC"
+                                    role="option">
+
+                                    <span>
+                                        CQC
+                                    </span>
+
+                                    <small>
+                                        ???
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         DESCRIPTION
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label for="description">
+
+                            ◆ PROFILE DESCRIPTION
+
+                        </label>
+
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="6"
+                            maxlength="500"
+                            placeholder="Tell the clan about yourself..."></textarea>
+
+
+                        <small>
+                            Maximum 500 characters.
+                        </small>
+
+                    </div>
+
+
+                    <!-- =========================
+                         SAVE
+                    ========================== -->
+
+                    <button
+                        type="submit"
+                        class="application-button"
+                        id="saveProfileButton">
+
+                        <span>
+                            SAVE PROFILE
+                        </span>
+
+                        <b>
+                            ◆
+                        </b>
+
+                    </button>
+
+
+                    <!-- =========================
+                         RETURN
+                    ========================== -->
+
+                    <a
+                        href="index.html#ranks"
+                        class="back-home">
+
+                        ← RETURN TO KYŌKEN
+
+                    </a>
+
+                </form>
+
+            </div>
+
+
+            <!-- =========================
+                 ACCESS DENIED
+            ========================== -->
+
+            <div
+                class="profile-denied"
+                id="profileDenied"
+                hidden>
+
+                <div class="profile-denied-symbol">
+                    ×
+                </div>
+
+                <h2>
+                    ACCESS DENIED
+                </h2>
+
+                <p id="profileDeniedMessage">
+
+                    Your Discord role is not connected
+                    to a Kyōken officer profile.
+
+                </p>
+
+
+                <a
+                    href="/auth/discord"
+                    class="btn primary-btn">
+
+                    LOGIN WITH DISCORD
+
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="back-home">
+
+                    ← RETURN TO KYŌKEN
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 MESSAGE
+            ========================== -->
+
+            <div
+                class="profile-message"
+                id="profileMessage"
+                aria-live="polite">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            KYŌKEN
+        </h3>
+
+        <p>
+            THE WOLF DOES NOT WALK ALONE.
+        </p>
+
+        <p class="copyright">
+
+            © 2026 Kyōken Clan.
+            All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>

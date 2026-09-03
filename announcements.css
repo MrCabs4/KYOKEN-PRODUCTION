@@ -1,0 +1,296 @@
+.announcement-shell{max-width:1400px}.back-command{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;letter-spacing:.08em;font-size:12px}.announcement-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}.announcement-composer,.announcement-history{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025);padding:28px}.field-label{display:block;margin:20px 0 8px;font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.68)}.announcement-composer input,.announcement-composer textarea{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.12);background:#090909;color:#fff;padding:14px 15px;font:inherit;outline:none}.announcement-composer textarea{min-height:230px;resize:vertical;line-height:1.6}.announcement-composer input:focus,.announcement-composer textarea:focus{border-color:rgba(255,255,255,.35)}.announcement-note{display:grid;gap:6px;margin:18px 0;padding:14px;border-left:2px solid #9d1111;background:rgba(157,17,17,.08)}.announcement-note strong{font-size:11px;letter-spacing:.12em}.announcement-note span{color:rgba(255,255,255,.62);font-size:13px;line-height:1.5}.command-button{width:100%;border:0;background:#9d1111;color:#fff;padding:15px 18px;font-weight:800;letter-spacing:.1em;cursor:pointer}.command-button:disabled{opacity:.55;cursor:wait}.announcement-list{display:grid;gap:12px;max-height:650px;overflow:auto}.announcement-item{padding:18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.018)}.announcement-item h3{margin:0 0 9px;font-size:16px}.announcement-item p{margin:0 0 13px;white-space:pre-wrap;color:rgba(255,255,255,.72);line-height:1.55}.announcement-meta{display:flex;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.45);font-size:11px;letter-spacing:.05em}@media(max-width:900px){.announcement-layout{grid-template-columns:1fr}}
+
+.announcement-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.announcement-composer select{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.12);background:#090909;color:#fff;padding:14px 15px;font:inherit;outline:none}.announcement-composer select:focus{border-color:rgba(255,255,255,.35)}.announcement-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.announcement-category,.announcement-live{display:inline-flex;padding:5px 8px;border:1px solid rgba(255,255,255,.12);font-size:9px;letter-spacing:.12em;font-weight:800}.announcement-live{border-color:rgba(157,17,17,.6);color:#ff6b6b}.announcement-item.is-highlighted{border-color:rgba(157,17,17,.35);box-shadow:inset 2px 0 0 #9d1111}.announcements-public-section{position:relative}.public-announcements-list{display:grid;gap:14px}.public-announcement-card{padding:22px;border:1px solid rgba(157,17,17,.35);background:rgba(157,17,17,.055);box-shadow:inset 3px 0 0 #9d1111}.public-announcement-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.public-announcement-category,.public-announcement-highlight{font-size:10px;letter-spacing:.13em;font-weight:800}.public-announcement-highlight{color:#ff6b6b}.public-announcement-card h3{margin:0 0 10px}.public-announcement-card p{margin:0 0 14px;white-space:pre-wrap;line-height:1.7;color:rgba(255,255,255,.76)}.public-announcement-meta{display:flex;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.45);font-size:10px;letter-spacing:.05em}.public-announcement-loading{color:rgba(255,255,255,.45);font-size:12px;letter-spacing:.1em}@media(max-width:700px){.announcement-form-row{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   CLEAN ANNOUNCEMENT DISPLAY
+   ========================================================= */
+.public-announcement-card{padding:24px;border:1px solid rgba(157,17,17,.35);background:rgba(157,17,17,.055);box-shadow:inset 3px 0 0 #9d1111}
+.public-announcement-category{display:block;margin-bottom:10px;font-size:10px;letter-spacing:.16em;font-weight:800;color:rgba(255,255,255,.58)}
+.public-announcement-card h3{margin:0 0 12px;font-size:18px;line-height:1.3}
+.public-announcement-card p{margin:0;white-space:pre-wrap;line-height:1.7;color:rgba(255,255,255,.76)}
+.public-announcement-highlight,.public-announcement-meta{display:none}
+.announcement-badges{margin-bottom:10px}
+.announcement-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding-top:13px;border-top:1px solid rgba(255,255,255,.07)}
+.announcement-status{font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.38)}
+.announcement-delete-button{border:1px solid rgba(157,17,17,.55);background:transparent;color:#ff7b7b;padding:9px 12px;font-size:10px;font-weight:800;letter-spacing:.08em;cursor:pointer}
+.announcement-delete-button:hover{background:rgba(157,17,17,.14);border-color:#9d1111}
+.announcement-delete-button:disabled{opacity:.55;cursor:wait}
+
+/* =========================================================
+   FINAL CLEAN ANNOUNCEMENT PRESENTATION
+   ========================================================= */
+.public-announcement-card {
+    padding: 28px 30px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-left: 2px solid rgba(157,17,17,.85);
+    background: rgba(255,255,255,.018);
+    box-shadow: none;
+}
+
+.public-announcement-card h3 {
+    margin: 0 0 14px;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.3;
+    letter-spacing: .04em;
+    color: #fff;
+}
+
+.public-announcement-card p {
+    margin: 0 0 18px;
+    white-space: pre-wrap;
+    line-height: 1.75;
+    color: rgba(255,255,255,.72);
+}
+
+.public-announcement-category,
+.public-announcement-highlight,
+.public-announcement-meta {
+    display: none !important;
+}
+
+.public-announcement-time,
+.announcement-time {
+    display: block;
+    color: rgba(255,255,255,.42);
+    font-size: 10px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+}
+
+.announcement-item {
+    padding: 20px 22px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.018);
+}
+
+.announcement-item h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.35;
+    letter-spacing: .035em;
+    color: #fff;
+}
+
+.announcement-item p {
+    margin: 0 0 14px;
+    color: rgba(255,255,255,.68);
+    line-height: 1.65;
+    white-space: pre-wrap;
+}
+
+.announcement-actions {
+    justify-content: flex-end;
+    margin-top: 14px;
+    padding-top: 12px;
+}
+
+.announcement-status { display: none; }
+
+
+/* =========================================================
+   DISCORD MENTION PICKER
+   ========================================================= */
+.mention-picker{position:relative}
+.mention-picker-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(255,255,255,.12);background:#090909;color:#fff;padding:14px 15px;font:inherit;font-size:12px;font-weight:800;letter-spacing:.10em;cursor:pointer;text-align:left}
+.mention-picker-trigger:hover{border-color:rgba(157,17,17,.55)}
+.mention-picker-trigger span{font-size:18px;line-height:1;color:rgba(255,255,255,.55)}
+.mention-picker-panel{margin-top:8px;border:1px solid rgba(255,255,255,.12);background:#080808;box-shadow:0 18px 50px rgba(0,0,0,.45);overflow:hidden}
+.mention-picker-panel[hidden]{display:none}
+.mention-picker-toolbar{padding:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mention-picker-toolbar input{margin:0!important;width:100%;padding:12px 13px!important}
+.mention-picker-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.08)}
+.mention-tab{border:0;border-bottom:2px solid transparent;background:transparent;color:rgba(255,255,255,.42);padding:11px;font-size:10px;font-weight:800;letter-spacing:.12em;cursor:pointer}
+.mention-tab.is-active{color:#fff;border-bottom-color:#9d1111}
+.mention-selected{display:flex;flex-wrap:wrap;gap:7px;padding:10px 12px;min-height:24px;border-bottom:1px solid rgba(255,255,255,.07)}
+.mention-none{font-size:9px;letter-spacing:.10em;color:rgba(255,255,255,.28)}
+.mention-chip{border:1px solid rgba(157,17,17,.5);background:rgba(157,17,17,.10);color:#fff;padding:6px 8px;font-size:10px;cursor:pointer}
+.mention-chip span{margin-left:5px;color:#ff7777}
+.mention-options{max-height:260px;overflow:auto;padding:6px}
+.mention-option{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;border:1px solid transparent;background:transparent;color:#fff;padding:10px 9px;text-align:left;cursor:pointer}
+.mention-option:hover{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.08)}
+.mention-option.is-selected{background:rgba(157,17,17,.10);border-color:rgba(157,17,17,.3)}
+.mention-option-main{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mention-option-sub{font-size:10px;color:rgba(255,255,255,.38);white-space:nowrap}
+.mention-option-check{font-size:13px;color:rgba(255,255,255,.42)}
+.mention-option.is-selected .mention-option-check{color:#ff7777}
+.mention-loading,.mention-empty{padding:20px 12px;text-align:center;color:rgba(255,255,255,.35);font-size:10px;letter-spacing:.10em}
+.mention-help{margin:8px 0 0;color:rgba(255,255,255,.38);font-size:10px;line-height:1.5}
+
+/* =========================================================
+   INLINE @ MENTION SUGGESTIONS
+   ========================================================= */
+.message-editor-wrap{position:relative}
+.inline-mention-menu{position:absolute;left:12px;right:12px;bottom:12px;z-index:50;border:1px solid rgba(255,255,255,.14);background:#0a0a0a;box-shadow:0 18px 45px rgba(0,0,0,.6);overflow:hidden}
+.inline-mention-menu[hidden]{display:none}
+.inline-mention-heading{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);font-size:9px;font-weight:800;letter-spacing:.16em;color:rgba(255,255,255,.45)}
+.inline-mention-options{max-height:230px;overflow:auto;padding:5px}
+.inline-mention-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid transparent;background:transparent;color:#fff;text-align:left;cursor:pointer}
+.inline-mention-option:hover,.inline-mention-option.is-active{background:rgba(157,17,17,.14);border-color:rgba(157,17,17,.32)}
+.inline-mention-option span{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inline-mention-option small{flex:none;color:rgba(255,255,255,.38);font-size:9px;letter-spacing:.08em}
+.inline-mention-empty{padding:18px;text-align:center;color:rgba(255,255,255,.35);font-size:10px;letter-spacing:.1em}
+.inline-mention-hint{padding:8px 12px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.3);font-size:8px;letter-spacing:.08em}
+
+
+/* =========================================================
+   CLEAN MANAGEMENT FORM + PUBLIC ANNOUNCEMENT DISPLAY
+   ========================================================= */
+.announcement-composer,
+.announcement-history {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.announcement-composer .section-heading h2,
+.announcement-history .section-heading h2 {
+    font-family: Cinzel, Georgia, serif;
+}
+
+.announcement-composer .field-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: rgba(255,255,255,.82);
+    margin: 20px 0 8px;
+}
+
+.announcement-composer input,
+.announcement-composer textarea,
+.announcement-composer select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+
+.announcement-composer textarea {
+    line-height: 1.6;
+}
+
+.announcement-note {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.announcement-note strong {
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.announcement-note span {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+.command-button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.announcement-item {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.announcement-item h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+}
+
+.announcement-item p {
+    letter-spacing: 0;
+}
+
+.announcement-delete-button {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+}
+
+.public-announcement-card {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px 26px;
+}
+
+.public-announcement-card h3 {
+    font-family: Cinzel, Georgia, serif;
+    letter-spacing: .02em;
+}
+
+.public-announcement-card p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+.public-announcement-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 13px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    color: rgba(255,255,255,.42);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0;
+}
+
+.public-announcement-time {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(255,255,255,.42);
+}
+
+.public-announcement-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: rgba(255,255,255,.4);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+@media(max-width:700px){
+    .public-announcement-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   NORMAL TYPING FONT — ANNOUNCEMENT COMPOSER
+   Keep KYŌKEN branding styled, but make actual form typing
+   plain, readable and natural.
+   ========================================================= */
+.announcement-composer #announcementTitle,
+.announcement-composer #announcementContent,
+.announcement-composer #announcementDuration {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    word-spacing: normal !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.announcement-composer #announcementTitle::placeholder,
+.announcement-composer #announcementContent::placeholder {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+}
+
+.announcement-composer #announcementContent {
+    white-space: pre-wrap;
+    text-transform: none !important;
+}
