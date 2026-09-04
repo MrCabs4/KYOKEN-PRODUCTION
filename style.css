@@ -1392,6 +1392,9 @@ section[id] {
 }
 
 
+.officer-card-meta-block{margin-top:9px;text-align:center}
+.officer-card-meta-label{display:block;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.34);margin-bottom:3px}
+.officer-card-division-block{margin-top:7px}
 .officer-card-position {
 
     margin-top:

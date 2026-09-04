@@ -742,16 +742,18 @@ function createOfficerCard(
             )}
         </h3>
 
-        <div class="officer-card-position">
-            ${escapeHTML(
-                position
-            )}
+        <div class="officer-card-meta-block">
+            <span class="officer-card-meta-label">POSITION</span>
+            <div class="officer-card-position">
+                ${escapeHTML(position)}
+            </div>
         </div>
 
-        <div class="officer-card-division">
-            ${escapeHTML(
-                division
-            )}
+        <div class="officer-card-meta-block officer-card-division-block">
+            <span class="officer-card-meta-label">DIVISION</span>
+            <div class="officer-card-division">
+                ${escapeHTML(division)}
+            </div>
         </div>
 
         <div class="officer-card-status presence-${

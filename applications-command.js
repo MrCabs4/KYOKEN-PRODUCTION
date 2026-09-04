@@ -103,8 +103,27 @@ function renderDetail(a){
   loadAccountRecord(a);
   $("applicationDetail").querySelectorAll("[data-action]").forEach(btn=>btn.addEventListener("click",()=>openConfirm(a,btn.dataset.action)));
 }
-function openConfirm(a,action){ pendingAction={id:a.id,action}; $("confirmTitle").textContent=action==="accept"?"ACCEPT APPLICATION":"REJECT APPLICATION"; $("confirmText").textContent=action==="accept"?`Accept Application #${a.id}? A one-use Discord invitation will be generated and sent to the applicant by DM when possible.`:`Reject Application #${a.id}? This will mark it as rejected and remove its Discord review buttons.`; $("confirmModal").classList.add("active");$("confirmModal").setAttribute("aria-hidden","false"); }
-function closeConfirm(){pendingAction=null;$("confirmModal").classList.remove("active");$("confirmModal").setAttribute("aria-hidden","true");}
+function openConfirm(a,action){
+  const modal=$("confirmModal");
+  if(!modal||!a)return;
+  pendingAction={id:a.id,action};
+  $("confirmTitle").textContent=action==="accept"?"ACCEPT APPLICATION":"REJECT APPLICATION";
+  $("confirmText").textContent=action==="accept"?`Accept Application #${a.id}? A one-use Discord invitation will be generated and sent to the applicant by DM when possible.`:`Reject Application #${a.id}? This will mark it as rejected and remove its Discord review buttons.`;
+  modal.hidden=false;
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("kyoken-modal-open");
+  requestAnimationFrame(()=>$("confirmAction")?.focus());
+}
+function closeConfirm(){
+  const modal=$("confirmModal");
+  pendingAction=null;
+  if(!modal)return;
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden","true");
+  modal.hidden=false;
+  document.body.classList.remove("kyoken-modal-open");
+}
 async function execute(){
   if(!pendingAction)return; const {id,action}=pendingAction; $("confirmAction").disabled=true;
   try{const r=await fetch(`/api/command/applications/${id}/action`,{method:"POST",credentials:"include",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({action})});const d=await r.json();if(!r.ok||!d.success)throw new Error(d.error||"Action failed.");closeConfirm();showNotice(action==="accept"?"APPLICATION ACCEPTED SUCCESSFULLY.":"APPLICATION REJECTED SUCCESSFULLY.");await load();}catch(e){showNotice(e.message,true);closeConfirm();}finally{$("confirmAction").disabled=false;}

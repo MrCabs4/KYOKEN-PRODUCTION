@@ -30,6 +30,11 @@ const {
 
 const app = express();
 
+// Render terminates HTTPS at its proxy. Trust the proxy so secure cookies work correctly.
+if (process.env.NODE_ENV === "production") {
+    app.set("trust proxy", 1);
+}
+
 
 /* =========================================================
    CONFIGURATION
@@ -495,6 +500,7 @@ const ALLOWED_FIGHTING_STYLES = [
    ========================================================= */
 
 const databasePath =
+    process.env.DATABASE_PATH ||
     path.join(
         __dirname,
         "kyoken.db"
@@ -1377,6 +1383,7 @@ function formatCooldown(
    ========================================================= */
 
 const uploadDirectory =
+    process.env.UPLOADS_DIR ||
     path.join(
         __dirname,
         "uploads"
@@ -1588,7 +1595,10 @@ app.use(
                 true,
 
             secure:
-                false,
+                process.env.NODE_ENV === "production",
+
+            sameSite:
+                "lax",
 
             maxAge:
                 1000 *
@@ -8887,6 +8897,7 @@ process.on(
 
 app.listen(
     PORT,
+    "0.0.0.0",
     function () {
 
         console.log(
