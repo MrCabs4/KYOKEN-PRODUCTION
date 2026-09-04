@@ -2652,6 +2652,74 @@ function initApplicationDiscordLogin() {
    APPLICATION FORM
    ========================================================= */
 
+let kyokenApplicationStatusStarted = false;
+
+function getApplicationResultElements() {
+    return {
+        overlay: document.getElementById("applicationResultOverlay") || document.getElementById("successOverlay"),
+        title: document.getElementById("applicationResultTitle"),
+        message: document.getElementById("applicationResultMessage"),
+        icon: document.getElementById("applicationResultIcon"),
+        actions: document.getElementById("applicationInviteActions"),
+        join: document.getElementById("joinKyokenButton"),
+        close: document.getElementById("applicationResultClose")
+    };
+}
+
+function showApplicationResult(status, application) {
+    const el = getApplicationResultElements();
+    if (!el.overlay) return;
+    const normalized = String(status || "").toUpperCase();
+    const accepted = normalized === "ACCEPTED";
+    const rejected = normalized === "REJECTED";
+    if (el.icon) el.icon.textContent = accepted ? "🐺" : rejected ? "✕" : "◆";
+    if (el.title) el.title.textContent = accepted ? "APPLICATION ACCEPTED!" : rejected ? "APPLICATION REJECTED" : "APPLICATION SUBMITTED!";
+    if (el.message) el.message.textContent = accepted
+        ? "Congratulations! Your application has been accepted. Click JOIN KYŌKEN below to use your personal invitation."
+        : rejected
+            ? "We're sorry, but your application has been rejected at this time. Thank you for applying to KYŌKEN CLAN."
+            : "Your application has been submitted successfully. Please wait while our officers review it.";
+    if (el.actions) el.actions.style.display = accepted && application?.invite_url ? "block" : "none";
+    if (el.join) el.join.onclick = function () { if (application?.invite_url) window.open(application.invite_url, "_blank", "noopener,noreferrer"); };
+    el.overlay.classList.add("active");
+    el.overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+}
+
+function closeApplicationResult() {
+    const el = getApplicationResultElements();
+    if (!el.overlay) return;
+    el.overlay.classList.remove("active");
+    el.overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+async function checkMyApplicationStatus() {
+    try {
+        const response = await fetch("/api/applications/mine", { credentials: "include", headers: { Accept: "application/json" }, cache: "no-store" });
+        if (!response.ok) return;
+        const data = await response.json();
+        const application = data?.application;
+        if (!application) return;
+        const status = String(application.status || "").toUpperCase();
+        if (status !== "ACCEPTED" && status !== "REJECTED") return;
+        const key = `kyoken-application-result-${application.id}-${status}`;
+        if (sessionStorage.getItem(key) === "shown") return;
+        sessionStorage.setItem(key, "shown");
+        showApplicationResult(status, application);
+    } catch (error) { console.error("Kyōken application status check failed:", error); }
+}
+
+function startApplicationStatusWatcher() {
+    if (kyokenApplicationStatusStarted) return;
+    kyokenApplicationStatusStarted = true;
+    checkMyApplicationStatus();
+    window.setInterval(checkMyApplicationStatus, 8000);
+    const el = getApplicationResultElements();
+    if (el.close) el.close.addEventListener("click", closeApplicationResult);
+    if (el.overlay) el.overlay.addEventListener("click", function (event) { if (event.target === el.overlay) closeApplicationResult(); });
+}
+
 function initApplicationForm() {
 
     const form =
@@ -2661,6 +2729,9 @@ function initApplicationForm() {
 
 
     const successOverlay =
+        document.getElementById(
+            "applicationResultOverlay"
+        ) ||
         document.getElementById(
             "successOverlay"
         );
@@ -2685,6 +2756,9 @@ function initApplicationForm() {
 
     form.dataset.initialized =
         "true";
+
+
+    startApplicationStatusWatcher();
 
 
     form.addEventListener(
@@ -3009,19 +3083,7 @@ function initApplicationForm() {
 
                 if (successOverlay) {
 
-                    successOverlay.classList.add(
-                        "active"
-                    );
-
-
-                    successOverlay.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-
-                    document.body.style.overflow =
-                        "hidden";
+                    showApplicationResult("PENDING", data.application);
 
                 } else {
 
@@ -4090,32 +4152,7 @@ function showProfileMessage(
 
 function closeSuccess() {
 
-    const successOverlay =
-        document.getElementById(
-            "successOverlay"
-        );
-
-
-    if (!successOverlay) {
-
-        return;
-
-    }
-
-
-    successOverlay.classList.remove(
-        "active"
-    );
-
-
-    successOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    document.body.style.overflow =
-        "";
+    closeApplicationResult();
 
 }
 

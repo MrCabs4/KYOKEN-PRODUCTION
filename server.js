@@ -3616,6 +3616,28 @@ discordClient.once(
    SUBMIT APPLICATION
    ========================================================= */
 
+app.get(
+    "/api/applications/mine",
+    async function (req, res) {
+        if (!req.session.discord) {
+            return res.status(401).json({ success: false, error: "You must log in with Discord." });
+        }
+        try {
+            const application = db.prepare(`
+                SELECT id, status, invite_url, invite_expires_at, created_at, reviewed_at, tryout_reviewed_at, tryout_fail_reason
+                FROM applications
+                WHERE discord_user_id = ?
+                ORDER BY id DESC LIMIT 1
+            `).get(req.session.discord.id);
+            return res.json({ success: true, application: application || null });
+        } catch (error) {
+            console.error("Kyōken applicant status lookup failed:", error);
+            return res.status(500).json({ success: false, error: "Unable to retrieve application status." });
+        }
+    }
+);
+
+
 app.post(
     "/api/applications",
     async function (

@@ -6645,3 +6645,11 @@ body.management-drawer-open { overflow:hidden; }
     visibility: hidden !important;
     pointer-events: none !important;
 }
+
+
+.application-result-overlay[aria-hidden="false"],
+.application-result-overlay.active { display:flex !important; opacity:1 !important; visibility:visible !important; pointer-events:auto !important; }
+.application-result-overlay .success-card { width:100%; max-width:500px; padding:50px 35px; text-align:center; background:linear-gradient(145deg,#1a0909,#050505); border:1px solid rgba(157,17,17,.50); box-shadow:0 0 50px rgba(157,17,17,.15); }
+.application-result-overlay .success-icon { font-size:50px; margin-bottom:15px; }
+.application-result-overlay .success-btn { min-width:140px; padding:13px 25px; margin:6px; background:var(--red); color:white; border:1px solid var(--red-bright); font-family:"Cinzel",serif; font-size:10px; letter-spacing:2px; cursor:pointer; }
+.application-result-overlay .success-btn:hover { background:var(--red-bright); box-shadow:0 0 20px rgba(210,27,27,.35); }
