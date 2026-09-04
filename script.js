@@ -1312,27 +1312,18 @@ async function loadDiscordOfficers() {
                     officer.position;
 
 
-                let division =
+                const divisionNames = {
+                    division1: "1ST DIVISION",
+                    division2: "2ND DIVISION",
+                    division3: "3RD DIVISION",
+                    division4: "4TH DIVISION",
+                    division5: "5TH DIVISION"
+                };
+
+
+                const division =
+                    divisionNames[position] ||
                     "HEADQUARTERS";
-
-
-                if (
-                    [
-                        "division1",
-                        "division2",
-                        "division3",
-                        "division4",
-                        "division5"
-                    ].includes(
-                        position
-                    )
-                ) {
-
-                    division =
-                        officer.positionName ||
-                        "DIVISION";
-
-                }
 
 
                 const convertedOfficer = {
