@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Kyōken Clan — A community forged through loyalty, discipline, strength, and brotherhood.">
+
+    <meta
+        name="theme-color"
+        content="#050505">
+
+    <title>KYŌKEN CLAN</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="#home"
+            class="nav-logo"
+            aria-label="Kyōken Home">
+
+            <span class="nav-logo-title">
+                KYŌKEN
+            </span>
+
+            <span class="nav-logo-stats">
+
+                <span
+                    id="serverMemberCount"
+                    class="server-members-number">
+
+                    —
+
+                </span>
+
+                <span class="server-members-label">
+
+                    MEMBERS
+
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a
+                href="#home"
+                class="active">
+
+                HOME
+
+            </a>
+
+
+            <a href="#about">
+
+                ABOUT
+
+            </a>
+
+
+            <a href="#ranks">
+
+                RANKS
+
+            </a>
+
+
+            <a href="application.html">
+
+                APPLY
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section
+        id="home"
+        class="hero reveal">
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="hero-content">
+
+            <div class="logo-container">
+
+                <img
+                    src="kyoken-logo.png"
+                    alt="Kyōken Clan Logo"
+                    loading="eager">
+
+            </div>
+
+
+            <div class="japanese-symbol">
+
+                狂犬
+
+            </div>
+
+
+            <h1>
+
+                KYŌKEN
+
+            </h1>
+
+
+            <div class="hero-line"></div>
+
+
+            <p class="subtitle">
+
+                THE WOLF DOES NOT WALK ALONE.
+
+            </p>
+
+
+            <p class="description">
+
+                Welcome to Kyōken Clan —
+                a community forged through loyalty,
+                discipline, strength, and brotherhood.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="application.html"
+                    class="btn primary-btn">
+
+                    JOIN KYŌKEN
+
+                </a>
+
+
+                <a
+                    href="#about"
+                    class="btn secondary-btn">
+
+                    LEARN MORE
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ANNOUNCEMENTS SLIDE TAB
+    ====================================================== -->
+
+    <button
+        id="announcementTab"
+        class="announcement-slide-tab"
+        type="button"
+        aria-controls="announcementDrawer"
+        aria-expanded="false">
+
+        <span>A</span><span>N</span><span>N</span><span>O</span><span>U</span><span>N</span><span>C</span><span>E</span><span>M</span><span>E</span><span>N</span><span>T</span><span>S</span>
+
+    </button>
+
+
+    <aside
+        id="announcementDrawer"
+        class="announcement-drawer"
+        aria-hidden="true">
+
+        <div class="announcement-drawer-header">
+
+            <div>
+                <h2>ANNOUNCEMENTS</h2>
+            </div>
+
+            <button
+                id="announcementDrawerClose"
+                class="announcement-drawer-close"
+                type="button"
+                aria-label="Close announcements">
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="publicAnnouncements"
+            class="public-announcements-list">
+
+            <div class="public-announcement-loading">
+                LOADING ANNOUNCEMENTS...
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        id="announcementBackdrop"
+        class="announcement-drawer-backdrop"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- =====================================================
+         MANAGEMENT SLIDE TAB
+    ====================================================== -->
+
+    <button
+        id="managementTab"
+        class="management-slide-tab"
+        type="button"
+        aria-controls="managementDrawer"
+        aria-expanded="false"
+        hidden>
+
+        <span>M</span><span>A</span><span>N</span><span>A</span><span>G</span><span>E</span><span>M</span><span>E</span><span>N</span><span>T</span>
+
+    </button>
+
+    <aside
+        id="managementDrawer"
+        class="management-drawer"
+        aria-hidden="true">
+
+        <div class="management-drawer-header">
+            <div>
+                <span class="management-eyebrow">KYŌKEN COMMAND</span>
+                <h2>MANAGEMENT</h2>
+                <p id="managementWelcome">Staff control center</p>
+            </div>
+
+            <button
+                id="managementDrawerClose"
+                class="management-drawer-close"
+                type="button"
+                aria-label="Close management">
+                ×
+            </button>
+        </div>
+
+        <div class="management-menu">
+            <div class="management-group">
+                <span class="management-group-title">APPLICATIONS</span>
+                <a href="applications.html" class="management-menu-item">
+                    <span class="management-icon">01</span>
+                    <span><strong>APPLICATION MANAGEMENT</strong><small>Review and manage clan applications</small></span>
+                </a>
+            </div>
+
+            <div class="management-group">
+                <span class="management-group-title">ANNOUNCEMENTS</span>
+                <a href="announcements.html" class="management-menu-item">
+                    <span class="management-icon">02</span>
+                    <span><strong>ANNOUNCEMENT MANAGEMENT</strong><small>Create and manage clan announcements</small></span>
+                </a>
+            </div>
+
+            <div class="management-group">
+                <span class="management-group-title">SYSTEM</span>
+                <a href="command.html" class="management-menu-item">
+                    <span class="management-icon">04</span>
+                    <span><strong>COMMAND DASHBOARD</strong><small>View clan statistics and system status</small></span>
+                </a>
+                <a href="activity-log.html" class="management-menu-item">
+                    <span class="management-icon">06</span>
+                    <span><strong>ACTIVITY LOG</strong><small>Review important management actions</small></span>
+                </a>
+            </div>
+        </div>
+
+    </aside>
+
+    <div
+        id="managementBackdrop"
+        class="management-drawer-backdrop"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+        id="about"
+        class="section reveal">
+
+        <div class="section-heading">
+
+            <span class="section-japanese">
+
+                狂犬
+
+            </span>
+
+
+            <h2>
+
+                ABOUT KYŌKEN
+
+            </h2>
+
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p>
+
+                Kyōken is a clan built on loyalty,
+                teamwork, discipline, and respect.
+                Every member represents the name of
+                Kyōken both inside and outside the battlefield.
+
+            </p>
+
+
+            <p class="quote">
+
+                "Stand together. Fight together. Grow together."
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RANKS / ORGANIZATION
+    ====================================================== -->
+
+    <section
+        id="ranks"
+        class="section ranks-section reveal">
+
+        <div class="section-heading">
+
+            <span class="section-japanese">
+
+                階級
+
+            </span>
+
+
+            <h2>
+
+                KYŌKEN RANKS
+
+            </h2>
+
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HEADQUARTERS
+        ================================================== -->
+
+        <h3 class="rank-category">
+
+            ◆ HEADQUARTERS ◆
+
+        </h3>
+
+
+        <div
+            class="rank-grid officers-grid headquarters-leadership-grid"
+            id="headquartersGrid">
+
+            <!-- Generated by script.js -->
+
+        </div>
+
+
+        <!-- =================================================
+             ADMINS
+        ================================================== -->
+
+        <div
+            class="rank-subcategory"
+            id="adminsCategory"
+            hidden>
+
+            <h4 class="rank-category rank-category-sub">
+                ◆ ADMINS ◆
+            </h4>
+
+            <div
+                class="rank-grid admins-grid"
+                id="adminsGrid">
+
+                <!-- Generated by script.js -->
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DIVISIONS
+        ================================================== -->
+
+        <h3 class="rank-category">
+
+            ◆ DIVISIONS ◆
+
+        </h3>
+
+
+        <div
+            class="rank-grid division-grid"
+            id="divisionGrid">
+
+            <!-- Generated by script.js -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JOIN
+    ====================================================== -->
+
+    <section
+        class="section apply-section reveal">
+
+        <div class="section-heading">
+
+            <span class="section-japanese">
+
+                入隊
+
+            </span>
+
+
+            <h2>
+
+                JOIN KYŌKEN
+
+            </h2>
+
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <p>
+
+            Think you have what it takes
+            to become part of Kyōken?
+
+        </p>
+
+
+        <a
+            href="application.html"
+            class="btn primary-btn">
+
+            APPLY NOW
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OFFICER MODAL
+    ====================================================== -->
+
+    <div
+        id="officerModal"
+        class="officer-modal"
+        aria-hidden="true">
+
+        <div
+            class="officer-box"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="officerName">
+
+            <button
+                class="officer-close"
+                type="button"
+                onclick="closeOfficer()"
+                aria-label="Close officer profile">
+
+                ×
+
+            </button>
+
+
+            <div class="officer-watermark">
+
+                狂犬
+
+            </div>
+
+
+
+            <!-- IMAGE -->
+
+            <div class="officer-image">
+
+                <div
+                    class="temporary-image"
+                    id="officerImageContainer">
+
+                    <img
+                        id="officerProfileImage"
+                        class="officer-profile-image"
+                        src=""
+                        alt="Officer Profile">
+
+                    <span
+                        id="officerImageFallback">
+
+                        狂犬
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INFORMATION -->
+
+            <div class="officer-info">
+
+                <span class="officer-label">
+
+                    KYŌKEN CLAN
+
+                </span>
+
+
+                <h2 id="officerName">
+
+                    TEMPORARY OFFICER
+
+                </h2>
+
+
+                <div class="officer-line"></div>
+
+
+
+                <!-- POSITION -->
+
+                <div class="officer-detail">
+
+                    <span>
+
+                        POSITION
+
+                    </span>
+
+                    <strong id="officerPosition">
+
+                        —
+
+                    </strong>
+
+                </div>
+
+
+
+                <!-- DIVISION -->
+
+                <div class="officer-detail">
+
+                    <span>
+
+                        DIVISION
+
+                    </span>
+
+                    <strong id="officerDivision">
+
+                        —
+
+                    </strong>
+
+                </div>
+
+
+
+                <!-- FIGHTING STYLE -->
+
+                <div class="officer-detail">
+
+                    <span>
+
+                        FIGHTING STYLE
+
+                    </span>
+
+                    <strong id="officerStyle">
+
+                        —
+
+                    </strong>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="officer-detail">
+
+                    <span>
+
+                        STATUS
+
+                    </span>
+
+                    <strong
+                        id="officerStatus"
+                        class="status-active">
+
+                        ACTIVE
+
+                    </strong>
+
+                </div>
+
+
+
+                <p
+                    id="officerDescription"
+                    class="officer-description">
+
+                    Officer information will be added soon.
+
+                </p>
+
+
+                <!-- EDIT BUTTON -->
+
+                <button
+                    id="editProfileButton"
+                    class="edit-profile-button"
+                    type="button"
+                    onclick="openProfileEditor()"
+                    aria-label="Open profile editor"
+                    hidden>
+
+                    ◆ EDIT PROFILE
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROFILE EDITOR
+    ====================================================== -->
+
+    <div
+        id="profileEditor"
+        class="profile-editor-overlay"
+        aria-hidden="true">
+
+        <div
+            class="profile-editor-box"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="profileEditorTitle">
+
+            <button
+                class="officer-close"
+                type="button"
+                onclick="closeProfileEditor()"
+                aria-label="Close profile editor">
+
+                ×
+
+            </button>
+
+
+            <div class="officer-watermark">
+
+                狂犬
+
+            </div>
+
+
+            <div class="profile-editor-content">
+
+                <span class="officer-label">
+
+                    KYŌKEN CLAN
+
+                </span>
+
+
+                <h2 id="profileEditorTitle">
+
+                    EDIT MY PROFILE
+
+                </h2>
+
+
+                <div class="officer-line"></div>
+
+
+
+                <!-- PROFILE PICTURE -->
+
+                <div class="profile-picture-editor">
+
+                    <div
+                        class="profile-picture-preview"
+                        id="profilePicturePreview">
+
+                        <img
+                            id="profilePicturePreviewImage"
+                            src=""
+                            alt="Profile Picture Preview"
+                            hidden>
+
+                        <span
+                            id="profilePictureFallback">
+
+                            狂犬
+
+                        </span>
+
+                    </div>
+
+
+                    <label
+                        for="profilePictureInput"
+                        class="upload-profile-button">
+
+                        UPLOAD PROFILE PICTURE
+
+                    </label>
+
+
+                    <input
+                        id="profilePictureInput"
+                        type="file"
+                        accept="image/png,image/jpeg,image/webp"
+                        hidden>
+
+
+                    <small>
+
+                        PNG, JPG or WEBP
+                        • Recommended: 512 × 512
+
+                    </small>
+
+                </div>
+
+
+
+                <!-- DISPLAY NAME -->
+
+                <div class="editor-field">
+
+                    <label for="profileDisplayName">
+
+                        ◆ DISPLAY NAME
+
+                    </label>
+
+                    <input
+                        id="profileDisplayName"
+                        type="text"
+                        maxlength="32"
+                        placeholder="Enter your display name">
+
+                </div>
+
+
+
+                <!-- FIGHTING STYLE -->
+
+                <div class="editor-field">
+
+                    <label for="profileStyle">
+
+                        ◆ FIGHTING STYLE
+
+                    </label>
+
+
+                    <select id="profileStyle">
+
+                        <option value="">
+
+                            Select Fighting Style
+
+                        </option>
+
+                        <option value="Basic">
+
+                            Basic
+
+                        </option>
+
+                        <option value="Slugger">
+
+                            Slugger
+
+                        </option>
+
+                        <option value="Muay Thai">
+
+                            Muay Thai
+
+                        </option>
+
+                        <option value="Karate">
+
+                            Karate
+
+                        </option>
+
+                        <option value="Kickboxing">
+
+                            Kickboxing
+
+                        </option>
+
+                        <option value="Boxing">
+
+                            Boxing
+
+                        </option>
+
+                        <option value="Striker">
+
+                            Striker
+
+                        </option>
+
+                        <option value="Capoeira">
+
+                            Capoeira
+
+                        </option>
+
+                        <option value="Wrestling">
+
+                            Wrestling
+
+                        </option>
+
+                        <option value="Kure">
+
+                            Kure
+
+                        </option>
+
+                        <option value="Hakari">
+
+                            Hakari
+
+                        </option>
+
+                        <option value="Kyoushin Karate">
+
+                            Kyoushin Karate
+
+                        </option>
+
+                        <option value="Ali">
+
+                            Ali
+
+                        </option>
+
+                        <option value="WingChun">
+
+                            WingChun
+
+                        </option>
+
+                        <option value="CQC">
+
+                            CQC
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="editor-field">
+
+                    <label for="profileDescription">
+
+                        ◆ PROFILE DESCRIPTION
+
+                    </label>
+
+                    <textarea
+                        id="profileDescription"
+                        maxlength="500"
+                        rows="6"
+                        placeholder="Tell the clan about yourself..."></textarea>
+
+                    <small>
+
+                        Maximum 500 characters.
+
+                    </small>
+
+                </div>
+
+
+
+                <!-- PERMISSION STATUS -->
+
+                <div
+                    id="profilePermissionMessage"
+                    class="profile-permission-message">
+
+                    Profile editing is currently
+                    controlled by Discord role permissions.
+
+                </div>
+
+
+
+                <!-- SAVE -->
+
+                <button
+                    id="saveProfileButton"
+                    class="application-button"
+                    type="button"
+                    onclick="saveMyProfile()">
+
+                    <span>
+
+                        SAVE PROFILE
+
+                    </span>
+
+                    <b>
+
+                        ◆
+
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="profile-cancel-button"
+                    type="button"
+                    onclick="closeProfileEditor()">
+
+                    CANCEL
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <h3>
+
+            KYŌKEN
+
+        </h3>
+
+
+        <p>
+
+            THE WOLF DOES NOT WALK ALONE.
+
+        </p>
+
+
+        <p class="copyright">
+
+            © 2026 Kyōken Clan. All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+    <script src="announcements-public.js"></script>
+
+</body>
+
+</html>
