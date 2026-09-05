@@ -10,7 +10,7 @@ const axios = require("axios");
 const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
-const { DatabaseSync } = require("node:sqlite");
+const Database = require("libsql");
 const { v2: cloudinary } = require("cloudinary");
 
 const {
