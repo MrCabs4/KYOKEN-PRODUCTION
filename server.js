@@ -1423,86 +1423,7 @@ if (
    ========================================================= */
 
 const profileImageStorage =
-    multer.diskStorage({
-
-        destination(
-            req,
-            file,
-            callback
-        ) {
-
-            callback(
-                null,
-                uploadDirectory
-            );
-
-        },
-
-
-        filename(
-            req,
-            file,
-            callback
-        ) {
-
-            const extensionMap = {
-
-                "image/jpeg":
-                    ".jpg",
-
-                "image/png":
-                    ".png",
-
-                "image/webp":
-                    ".webp"
-
-            };
-
-
-            const extension =
-                extensionMap[
-                    file.mimetype
-                ];
-
-
-            if (!extension) {
-
-                return callback(
-
-                    new Error(
-                        "Unsupported image type."
-                    )
-
-                );
-
-            }
-
-
-            const userId =
-                req.session?.discord?.id ||
-                "unknown";
-
-
-            const safeUserId =
-                String(
-                    userId
-                ).replace(
-                    /[^a-zA-Z0-9_-]/g,
-                    ""
-                );
-
-
-            callback(
-
-                null,
-
-                `${safeUserId}-${Date.now()}${extension}`
-
-            );
-
-        }
-
-    });
+    multer.memoryStorage();
 
 
 const profileUpload =
@@ -2829,13 +2750,65 @@ app.post(
 
 
         if (
-            req.file
-        ) {
+    req.file
+) {
 
-            newProfileImage =
-                `/uploads/${req.file.filename}`;
+    newProfileImage =
+        await new Promise(
 
-        }
+            (
+                resolve,
+                reject
+            ) => {
+
+                const uploadStream =
+                    cloudinary
+                        .uploader
+                        .unsigned_upload_stream(
+
+                            process.env
+                                .CLOUDINARY_UPLOAD_PRESET,
+
+                            {
+                                folder:
+                                    "kyoken/profiles",
+
+                                public_id:
+                                    `${user.id}-${Date.now()}`
+                            },
+
+                            (
+                                error,
+                                result
+                            ) => {
+
+                                if (
+                                    error
+                                ) {
+
+                                    return reject(
+                                        error
+                                    );
+
+                                }
+
+                                resolve(
+                                    result.secure_url
+                                );
+
+                            }
+
+                        );
+
+                uploadStream.end(
+                    req.file.buffer
+                );
+
+            }
+
+        );
+
+}
 
 
         const updatedProfile =
