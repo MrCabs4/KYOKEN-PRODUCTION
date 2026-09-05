@@ -69,6 +69,15 @@ const DISCORD_REDIRECT_URI =
     process.env.DISCORD_REDIRECT_URI ||
     `http://localhost:${PORT}/auth/discord/callback`;
 
+/* =========================================================
+   CLOUDINARY CONFIGURATION
+   ========================================================= */
+
+cloudinary.config({
+    cloud_name:
+        process.env.CLOUDINARY_CLOUD_NAME
+});
+
 
 /* =========================================================
    APPLICATION SYSTEM CONFIGURATION
