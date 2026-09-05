@@ -10,7 +10,7 @@ const axios = require("axios");
 const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
-const { DatabaseSync } = require("node:sqlite");
+const Database = require("libsql");
 
 const {
     Client,
@@ -499,17 +499,27 @@ const ALLOWED_FIGHTING_STYLES = [
    DATABASE
    ========================================================= */
 
-const databasePath =
-    process.env.DATABASE_PATH ||
-    path.join(
-        __dirname,
-        "kyoken.db"
+const useTurso =
+    !!process.env.TURSO_DATABASE_URL &&
+    !!process.env.TURSO_AUTH_TOKEN;
+
+const databasePath = useTurso
+    ? path.join(__dirname, ".kyoken-replica.db")
+    : (
+        process.env.DATABASE_PATH ||
+        path.join(__dirname, "kyoken.db")
     );
 
-const db =
-    new DatabaseSync(
-        databasePath
-    );
+const db = useTurso
+    ? new Database(databasePath, {
+        syncUrl: process.env.TURSO_DATABASE_URL,
+        authToken: process.env.TURSO_AUTH_TOKEN
+    })
+    : new Database(databasePath);
+
+if (useTurso) {
+    db.sync();
+}
 
 
 /* =========================================================
