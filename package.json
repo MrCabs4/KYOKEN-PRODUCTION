@@ -11,12 +11,12 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@libsql/client": "^0.18.0",
     "axios": "^1.20.0",
     "discord.js": "^14.27.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
+    "libsql": "0.6.0-pre.41",
     "multer": "^2.3.0"
   }
 }
