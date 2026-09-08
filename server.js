@@ -493,6 +493,7 @@ const ALLOWED_FIGHTING_STYLES = [
     "Kickboxing",
     "Boxing",
     "Striker",
+    "Lethwei",
     "Capoeira",
     "Wrestling",
     "Kure",
@@ -501,6 +502,7 @@ const ALLOWED_FIGHTING_STYLES = [
     "Ali",
     "WingChun",
     "CQC"
+    "Mashima",
 
 ];
 
