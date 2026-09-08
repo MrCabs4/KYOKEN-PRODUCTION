@@ -501,7 +501,7 @@ const ALLOWED_FIGHTING_STYLES = [
     "Kyoushin Karate",
     "Ali",
     "WingChun",
-    "CQC"
+    "CQC",
     "Mashima",
 
 ];
