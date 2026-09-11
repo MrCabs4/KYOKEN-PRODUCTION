@@ -1506,7 +1506,7 @@ async function loadDiscordOfficers() {
                         break;
 
                       
-                   case "divisions":
+                   case "division6":
 
                         officerData.division6.push(
                            convertedOfficer
