@@ -1066,22 +1066,41 @@ function renderDivisionCards() {
         }
     );
 
-   // WOMEN'S DIVISION — supports two Captains
-if (womenDivision.length > 0) {
-    const womenTitle = document.createElement("div");
-    womenTitle.className = "division-section-title";
-    womenTitle.textContent = "WOMEN'S DIVISION";
+   // WOMEN'S DIVISION
+const womenGrid =
+    document.getElementById("womenDivisionGrid");
 
-    divisionGrid.appendChild(womenTitle);
+if (womenGrid) {
 
-    womenDivision.forEach((officer) => {
-        const card = createOfficerCard(
+    womenGrid.innerHTML = "";
+
+    womenDivision.forEach(
+        function (
             officer,
-            "WOMEN'S DIVISION"
-        );
+            index
+        ) {
 
-        divisionGrid.appendChild(card);
-    });
+            const officerKey =
+                "division6:" +
+                index;
+
+            womenGrid.appendChild(
+
+                createOfficerCard(
+
+                    officerKey,
+
+                    officer,
+
+                    index + 1
+
+                )
+
+            );
+
+        }
+    );
+
 }
 
 
