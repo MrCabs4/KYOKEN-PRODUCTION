@@ -1602,6 +1602,10 @@ function resetOfficerData() {
             "5TH DIVISION"
         );
 
+
+    officerData.division6 =
+        [];
+
 }
 
 
@@ -1989,7 +1993,8 @@ async function updateOfficerEditButton(
                 "division2",
                 "division3",
                 "division4",
-                "division5"
+                "division5",
+                "division6"
             ].includes(
                 user?.position
             );
