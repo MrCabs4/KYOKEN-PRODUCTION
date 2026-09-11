@@ -124,13 +124,14 @@ const officerData = {
         ),
 
     division5:
-        createEmptyOfficer(
-            "CAPTAIN",
-            "5TH DIVISION"
-        )
+    createEmptyOfficer(
+        "CAPTAIN",
+        "5TH DIVISION"
+    ),
+
+    division6: []
 
 };
-
 
 /* =========================================================
    CREATE EMPTY OFFICER
@@ -1036,6 +1037,11 @@ function renderDivisionCards() {
 
     ];
 
+    const womenDivision =
+        Array.isArray(officerData.division6)
+            ? officerData.division6
+            : [];
+   
 
     divisions.forEach(
         function (
@@ -1059,6 +1065,24 @@ function renderDivisionCards() {
 
         }
     );
+
+   // WOMEN'S DIVISION — supports two Captains
+if (womenDivision.length > 0) {
+    const womenTitle = document.createElement("div");
+    womenTitle.className = "division-section-title";
+    womenTitle.textContent = "WOMEN'S DIVISION";
+
+    divisionGrid.appendChild(womenTitle);
+
+    womenDivision.forEach((officer) => {
+        const card = createOfficerCard(
+            officer,
+            "WOMEN'S DIVISION"
+        );
+
+        divisionGrid.appendChild(card);
+    });
+}
 
 
     initOfficerCards();
