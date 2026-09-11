@@ -1360,7 +1360,8 @@ async function loadDiscordOfficers() {
                     division2: "2ND DIVISION",
                     division3: "3RD DIVISION",
                     division4: "4TH DIVISION",
-                    division5: "5TH DIVISION"
+                    division5: "5TH DIVISION",
+                    division6: "WOMEN'S DIVISION"
                 };
 
 
@@ -1492,6 +1493,15 @@ async function loadDiscordOfficers() {
 
                         officerData.division5 =
                             convertedOfficer;
+
+                        break;
+
+                      
+                   case "divisions":
+
+                        officerData.division6.push(
+                           convertedOfficer
+                        );
 
                         break;
 
