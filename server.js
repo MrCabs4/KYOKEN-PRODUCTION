@@ -418,7 +418,10 @@ const KYOKEN_ROLES = {
         "1533793002638676078",
 
     division5:
-        "1533795938814918657"
+    "1533795938814918657",
+
+    division6:
+    "1547861072961339423"
 
 };
 
@@ -454,7 +457,10 @@ const KYOKEN_POSITION_NAMES = {
         "CAPTAIN",
 
     division5:
-        "CAPTAIN"
+    "CAPTAIN",
+
+    division6:
+    "CAPTAIN"
 
 };
 
@@ -472,7 +478,8 @@ const KYOKEN_PERMISSION_DEFAULTS = {
     division2: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true },
     division3: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true },
     division4: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true },
-    division5: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true }
+    division5: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true },
+    division6: { editOwnProfile: true, manageApplications: false, manageAnnouncements: false, deleteAnnouncements: false, viewActivityLogs: true }
 };
 
 const KYOKEN_PERMISSIONS = Object.fromEntries(
