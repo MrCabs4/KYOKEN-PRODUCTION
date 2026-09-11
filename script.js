@@ -1251,25 +1251,14 @@ function findAdminByID(
    GET OFFICER DATA
    ========================================================= */
 
-function getOfficerData(
-    officer
-) {
+function getOfficerData(officer) {
 
-    if (
-        typeof officer !==
-        "string"
-    ) {
-
+    if (typeof officer !== "string") {
         return null;
-
     }
 
 
-    if (
-        officer.startsWith(
-            "admin:"
-        )
-    ) {
+    if (officer.startsWith("admin:")) {
 
         return findAdminByID(
             officer.substring(6)
@@ -1278,10 +1267,30 @@ function getOfficerData(
     }
 
 
-    return (
-        officerData[officer] ||
-        null
-    );
+    if (officer.startsWith("division6:")) {
+
+        const index =
+            Number(
+                officer.substring(10)
+            );
+
+        if (
+            !Array.isArray(
+                officerData.division6
+            )
+        ) {
+            return null;
+        }
+
+        return (
+            officerData.division6[index] ||
+            null
+        );
+
+    }
+
+
+    return officerData[officer] || null;
 
 }
 
