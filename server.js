@@ -1799,15 +1799,19 @@ function getKyokenPosition(
         ],
 
         [
-            "division4",
-            KYOKEN_ROLES.division4
-        ],
-
-        [
-            "division5",
-            KYOKEN_ROLES.division5
-        ]
-
+             "division4",
+             KYOKEN_ROLES.division4
+         ],
+         
+         [
+             "division5",
+             KYOKEN_ROLES.division5
+         ],
+         
+         [
+             "division6",
+             KYOKEN_ROLES.division6
+         ]
     ];
 
 
